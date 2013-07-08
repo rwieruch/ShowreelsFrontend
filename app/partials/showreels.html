@@ -1,0 +1,74 @@
+<!-- Instantiate this for bootstrap-select -->
+<script type="text/javascript">    
+	$(document).ready(function(){
+	    $('select').selectpicker();
+	});
+
+	$("a[href='#top']").click(function() {
+	  $("html, body").animate({ scrollTop: 0 }, "slow");
+	  return false;
+	});
+</script>
+
+<div ng-controller="ShowreelCtrl">
+
+<div class="navbar navbar-fixed-top" style="top: 41px;">
+  <div class="navbar-inner">
+  	<div class="container">
+	    <ul class="nav">
+          <li>
+  			<form class="navbar-search pull-left" action="">
+		      <input ng-model="query" type="text" class="search-query span2" placeholder="Search">
+		    </form>
+          </li>
+        </ul>
+	    <ul class="nav">
+          <li>
+		    <select class="selectpicker" ng-model="orderProp">
+		  		<option value="name">Alphabetical</option>
+		  		<option value="-date">Newest</option>
+			</select>
+          </li>
+        </ul>
+	</div>
+  </div>
+</div>
+
+<!-- Fluid container -->
+<div class="container-fluid">
+		<div class="row-fluid">
+			<div class="span5 offset3">
+
+				<form ng-submit="addShowreel()">
+			        <p><input input size="80" type="text" ng-model="name" placeholder="Title" /></p>
+			        <p><input input size="80" type="text" ng-model="text" placeholder="Description" /></p>
+			        <button type="submit" class="btn">Add</button>
+			    </form>
+
+				<ul>
+				  <li ng-repeat="showreel in showreels | filter:query | orderBy:orderProp">
+		
+				  			<h2 class="text-center">{{showreel.name}}</h2>
+				    		<p>{{showreel.text}}</p>
+				    		<p><a href="{{showreel.projectUrl}}">Link to {{showreel.name}}</a></p>
+				    		<p>Contributors: {{showreel.contributors}}</p>
+				    		<p>{{showreel.tags}}</p>
+				    		<p>{{showreel.date | date:'d MMMM yyyy'}}</p>
+
+				  			<div class="image-block">
+							   <img ng-src="{{showreel.imageUrl}}" alt="" style="display: block; margin: 0 auto;"/>
+							   <div class="reflection">
+							      <img ng-src="{{showreel.imageUrl}}" alt="" style="display: block; margin: 0 auto;"/>
+							      <div class="overlay"></div>
+							   </div>
+							</div>​		
+				    <hr>
+				  </li>
+				</ul>
+		      <p class="pull-right">
+        		<a href="#top">Back to top</a>
+      		</p>
+			</div>
+		</div>
+	</div>
+<div>

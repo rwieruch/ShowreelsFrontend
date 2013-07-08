@@ -1,0 +1,11 @@
+[
+{"name": "Campus Navigator",
+ "text": "Eine Windows Phone 7.5 und Windows Phone 8 App zur Navigation auf dem Universitätscampus der TU Dresden und TU Berlin.",
+	 "date":"13 Nov 2013"},
+{"name": "Onespark Mobile",
+ "text": "Eine Cross-Platform App entwickelt mit JS, CSS, HTML und PhoneGap.",
+	 "date":"25 Dec 2013"},
+{"name": "Realtime Data Grid",
+ "text": "Eine Datenvisualisierung in Echtzeit via..",
+	 "date":"23 Oct 2013"}
+]

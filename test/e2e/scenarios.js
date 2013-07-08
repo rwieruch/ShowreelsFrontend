@@ -9,37 +9,79 @@ describe('my app', function() {
   });
 
 
-  it('should automatically redirect to /view1 when location hash/fragment is empty', function() {
-    expect(browser().location().url()).toBe("/view1");
+  it('should automatically redirect to /showreels when location hash/fragment is empty', function() {
+    expect(browser().location().url()).toBe("/showreels");
   });
 
 
-  describe('view1', function() {
+  describe('showreels_view', function() {
 
     beforeEach(function() {
-      browser().navigateTo('#/view1');
+      browser().navigateTo('#/showreels');
     });
 
 
-    it('should render view1 when user navigates to /view1', function() {
+    it('should render showreels when user navigates to /showreels', function() {
+      expect(browser().location().url()).toBe("/showreels");
+    });
+
+    it('should be possible to control phone order via the drop down select box',
+        function() {
+      //let's narrow the dataset to make the test assertions shorter
+      input('query').enter('tablet');
+ 
+      expect(repeater('.phones li', 'Phone List').column('phone.name')).
+          toEqual(["Motorola XOOM\u2122 with Wi-Fi",
+                   "MOTOROLA XOOM\u2122"]);
+ 
+      select('orderProp').option('Alphabetical');
+ 
+      expect(repeater('.phones li', 'Phone List').column('phone.name')).
+          toEqual(["MOTOROLA XOOM\u2122",
+                   "Motorola XOOM\u2122 with Wi-Fi"]);
+    });
+  });
+
+
+  describe('about_view', function() {
+
+    beforeEach(function() {
+      browser().navigateTo('#/about');
+    });
+
+
+    it('should render about when user navigates to /about', function() {
       expect(element('[ng-view] p:first').text()).
-        toMatch(/partial for view 1/);
+        toMatch(/About/);
     });
 
   });
 
-
-  describe('view2', function() {
+  describe('contact_view', function() {
 
     beforeEach(function() {
-      browser().navigateTo('#/view2');
+      browser().navigateTo('#/contact');
     });
 
 
-    it('should render view2 when user navigates to /view2', function() {
+    it('should render contact when user navigates to /contact', function() {
       expect(element('[ng-view] p:first').text()).
-        toMatch(/partial for view 2/);
+        toMatch(/Contact/);
     });
 
   });
 });
+
+
+ 
+ 
+    /*it('should filter the phone list as user types into the search box', function() {
+      expect(repeater('.phones li').count()).toBe(3);
+ 
+      input('query').enter('nexus');
+      expect(repeater('.phones li').count()).toBe(1);
+ 
+      input('query').enter('motorola');
+      expect(repeater('.phones li').count()).toBe(2);
+    });*/
+

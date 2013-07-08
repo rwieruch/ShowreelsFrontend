@@ -1,0 +1,21 @@
+<div class="container-fluid">
+	<div ng-controller="SignupCtrl">
+		<div class="row-fluid">
+			<div class="span6 offset3">
+				<form ng-submit="addUser()" name="signupForm" novalidate>
+				  <p>Email</p>
+				  <input size="80" name="email" ng-model="newUser.email" type="email" placeholder="Enter your email" required>
+				  <span class="help-inline" ng-show="signupForm.$error.email">Invalid Email format!</span>
+				  <p>Username</p>
+				  <input size="80" name="username" ng-model="newUser.username" type="text" placeholder="Enter your username" required>
+				  <p>Password</p>
+				  <input size="80" id="password1" name="password1" ng-model="newUser.password1" type="password" placeholder="Enter your password" required>
+				  <p>Confirm Password</p>
+				  <input size="80" id="password2" name="password2" ng-model="newUser.password2" type="password" pw-check="password1" placeholder="Confirm your password" required>
+				  <span class="help-inline" ng-show="signupForm.password2.$error.pwmatch">Passwords don't match!</span>
+				  <p><button type="submit" ng-disabled="!signupForm.$valid" class="btn">Sign up</button></p>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>

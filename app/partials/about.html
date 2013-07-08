@@ -1,0 +1,22 @@
+<div class="container-fluid">
+	<div ng-controller="AboutCtrl">
+		<div class="row-fluid">
+			<div class="span6 offset3">
+		  		<div class="span5">
+		  			<img ng-src="{{authuser.imageUrl}}">
+		  		</div>
+	  			<div class="span4">
+		    		<p>{{authuser.beschreibung}}</p>
+					<div class="row-fluid">
+			            <div class="span3 offset6">
+			              <a href="{{authuser.xing}}"><i class="icon-xing icon-4x"></i></a>
+			            </div>
+			            <div class="span3">
+			              <a href="{{authuser.github}}"><i class="icon-github icon-4x"></i></a>
+			            </div>
+			        </div>
+			    </div>
+		    </div>
+		</div>				    		     
+	</div>
+</div>
