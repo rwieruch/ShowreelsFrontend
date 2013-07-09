@@ -4,6 +4,12 @@
 
 angular.module('myApp.controllers', []).
   controller('ShowreelCtrl', ['$scope', '$http', function($scope, $http) {
+	$scope.hashtags = [
+	    {}
+	  ];
+
+    $scope.datepicker = {date: new Date("2012-09-01T00:00:00.000Z")};
+
 	$scope.showreels = [
 	    {"id":"campus_navigator",
 	     "imageUrl":"img/showreels/campus_navigator.0.png",
@@ -61,6 +67,8 @@ angular.module('myApp.controllers', []).
     	var showreel = {name:$scope.name, text:$scope.text};
 	    console.log(showreel);
 	    $scope.showreels.push(showreel);
+
+	    console.log($scope.hashtags);
 
 	    $scope.name = '';
 	    $scope.text = '';

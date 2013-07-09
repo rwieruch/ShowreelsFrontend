@@ -39,11 +39,76 @@
 		<div class="row-fluid">
 			<div class="span5 offset3">
 
-				<form ng-submit="addShowreel()">
-			        <p><input input size="80" type="text" ng-model="name" placeholder="Title" /></p>
-			        <p><input input size="80" type="text" ng-model="text" placeholder="Description" /></p>
-			        <button type="submit" class="btn">Add</button>
+				<!-- Form for new showreels -->
+				<form ng-submit="addShowreel()" class="form-horizontal">
+				  <div class="control-group">
+				    <label class="control-label" for="inputTitle">Title*</label>
+				    <div class="controls">
+				      <input class="input-xlarge" type="text" id="inputTitle" ng-model="name" placeholder="Title">
+				    </div>
+				  </div>
+				  <div class="control-group">
+				    <label class="control-label" for="inputDescription">Description*</label>
+				    <div class="controls">
+				      <textarea class="input-xlarge" type="text" id="inputDescription" ng-model="text" placeholder="Description" rows="4"></textarea>
+				    </div>
+				  </div>
+  		          <div class="control-group">
+				    <label class="control-label" for="inputImgUrl">Image</label>
+				    <div class="controls">
+				      <input class="input-xlarge" type="url" id="inputImgUrl" ng-model="image" placeholder="Image">
+				    </div>
+				  </div>
+				  <div class="control-group">
+				  	<label class="control-label" for="inputPrivacy1">Privacy</label>
+				  	<div class="controls">
+					  <label class="radio">
+						  <input type="radio" name="optionsRadios" id="inputPrivacy1" value="option1" checked>
+						  Public
+				      </label>
+					  <label class="radio">
+						  <input type="radio" name="optionsRadios" id="inputPrivacy2" value="option2">
+						  Private
+					  </label>
+					</div>
+				  </div>
+				  <div class="control-group">
+				  	<label class="control-label" for="inputHashtag">Hashtag(s)</label>
+				    <div ng-repeat="hashtag in hashtags" class="controls">
+				    	<div class="input-append">
+						  <input class="input-large" id="inputHashtag" type="text" placeholder="Hashtag" ng-model="hashtag.name">
+						  <button ng-click="hashtags.splice($index, 1)" class="btn btn-edge" type="button"><i class="icon-remove icon-black"></i></button>
+						</div>
+			      	</div>
+				  </div>
+		      	  <div class="control-group">
+			      	<div class="controls">
+			      		<button ng-click="hashtags.push({})" class="btn" type="button"><i class="icon-plus icon-black"></i></button>
+			      	</div>
+		          </div>
+  		          <div class="control-group">
+				    <label class="control-label" for="inputShowreelUrl">URL</label>
+				    <div class="controls">
+				      <input class="input-xlarge" type="url" id="inputShowreelUrl" ng-model="showreel_url" placeholder="URL">
+				    </div>
+				  </div>
+				  <div class="control-group ">
+				  	 <label class="control-label" for="inputDate">Date</label>
+					 <div class="controls">
+					  <div class="input-append">
+						<input class="input-large" id="inputDate" type="text" ng-model="datepicker.date" data-date-format="dd.mm.yyyy" bs-datepicker>
+              			<button type="button" class="btn" data-toggle="datepicker"><i class="icon-calendar"></i></button>
+				      </div>
+				  	</div>
+			      </div>
+			      <div class="control-group">
+				    <div class="controls">
+				      <button type="submit" class="btn">Add</button>
+				    </div>
+				  </div>
 			    </form>
+
+			    <hr>
 
 				<ul>
 				  <li ng-repeat="showreel in showreels | filter:query | orderBy:orderProp">

@@ -2,7 +2,7 @@
 
 
 // Declare app level module which depends on filters, and services
-angular.module('myApp', ['myApp.filters', 'myApp.services', 'myApp.directives', 'myApp.controllers']).
+angular.module('myApp', ['myApp.filters', 'myApp.services', 'myApp.directives', 'myApp.controllers', '$strap.directives']).
   config(['$routeProvider', '$httpProvider', function($routeProvider, $httpProvider) {
   	$routeProvider.when('/signup', {templateUrl: 'partials/signup.html', controller: 'SignupCtrl'});
     $routeProvider.when('/showreels', {templateUrl: 'partials/showreels.html', controller: 'ShowreelCtrl'});
@@ -27,4 +27,4 @@ angular.module('myApp', ['myApp.filters', 'myApp.services', 'myApp.directives', 
         }
       }         
     });
- })
+ });
