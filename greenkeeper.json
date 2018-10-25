@@ -1,0 +1,9 @@
+{
+  "groups": {
+    "default": {
+      "packages": [
+        "app/lib/silviomoreto-bootstrap-select-20ac164/package.json"
+      ]
+    }
+  }
+}
